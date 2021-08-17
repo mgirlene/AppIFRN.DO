@@ -38,7 +38,52 @@ const styles = StyleSheet.create({
         fontSize:36,
         fontWeight:'700',
         color:'#FFFFFF',
-        fontFamily:'bold'
+    },
+    containerHome: {
+        flex: 1,
+        alignItems: 'center'
+    },
+    container_header: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        backgroundColor: '#1DB863',
+        width: '100%',
+        height: 140,
+    },
+    text: {
+        marginTop: 50,
+        color: '#fff'
+    },
+    text_title: {
+        fontSize: 24,
+    },
+    container_input: {
+        margin: -30,
+        width: '85%',
+        height: 60,
+        backgroundColor: '#fff',
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderRadius: 5,
+    },
+    inputText: {
+        flex: 1,
+        height: '100%',
+        backgroundColor: '#fff',
+        paddingLeft: 20,
+        color: '#808080',
+        fontSize: 22,
+
+    },
+    buttonTask: {
+        padding: 15,
+        backgroundColor: '#fff',
+        borderLeftWidth: 1,
+        borderLeftColor: '#808080',
+    },
+    list_tasks: {
+        marginTop: 50,
+        alignItems: 'center',
     },
    
 });

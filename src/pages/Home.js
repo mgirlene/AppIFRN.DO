@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Keyboard, FlatList, StatusBar } from 'react-native'
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native'
+import styles from '../styles/MyStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import { Task } from '../components/Task'
@@ -59,7 +60,7 @@ export default function Home() {
 
     return (
 
-        <View style={styles.container}>
+        <View style={styles.containerHome}>
             <StatusBar backgroundColor="#1DB863" />
             <View style={styles.container_header}>
                 <Text style={[styles.text, styles.text_title]}>IFRN.DO</Text>
@@ -67,12 +68,12 @@ export default function Home() {
             </View>
             <View style={styles.container_input}>
                 <TextInput style={styles.inputText} placeholder='Nova Tarefa' placeholderTextColor={{ color: '#808080' }} onChangeText={setTask} value={task} />
-                <TouchableOpacity style={styles.button} onPress={() => saveTasks()} onPressIn={Keyboard.dismiss}>
+                <TouchableOpacity style={styles.buttonTask} onPress={() => saveTasks()} onPressIn={Keyboard.dismiss}>
                     <AntDesign name="right" size={20} color={'gray'} />
                 </TouchableOpacity>
             </View>
 
-            <View style={styles.list_tarefas}>
+            <View style={styles.list_tasks}>
                 <FlatList data={tasks}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => (
@@ -85,53 +86,3 @@ export default function Home() {
 
     )
 }
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center'
-    },
-    container_header: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        backgroundColor: '#1DB863',
-        width: '100%',
-        height: 140,
-    },
-    text: {
-        marginTop: 50,
-        color: '#fff'
-    },
-    text_title: {
-        fontWeight: '700',
-        fontSize: 24,
-    },
-    container_input: {
-        margin: -30,
-        width: '85%',
-        height: 60,
-        backgroundColor: '#fff',
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderRadius: 5,
-    },
-    inputText: {
-        flex: 1,
-        height: '100%',
-        backgroundColor: '#fff',
-        paddingLeft: 20,
-        color: 'gray',
-        fontSize: 20,
-
-    },
-    button: {
-        padding: 15,
-        backgroundColor: '#fff',
-        borderLeftWidth: 1,
-        borderLeftColor: '#808080',
-    },
-    list_tarefas: {
-        marginTop: 40,
-        alignItems: 'center',
-    }
-
-})
